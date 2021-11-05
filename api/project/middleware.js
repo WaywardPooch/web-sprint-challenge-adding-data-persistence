@@ -24,13 +24,10 @@ const validateProjectPayload = (req, res, next) => {
       status: 400,
       message: "do not provide a project_id; this will be assigned, automatically"
     });
-  } else if (
-    typeof project_name !== "string" ||
-    typeof project_name === "undefined"
-  ) {
+  } else if (typeof project_name !== "string") {
     next({
       status: 400,
-      message: `project name "${project_name}" is invalid or missing`
+      message: `project name is invalid or missing`
     });
   } else if (
     project_description &&
