@@ -2,7 +2,8 @@ exports.seed = function (knex) {
   return knex('projects').insert([
     {
       project_name: "Install Linux",
-      project_description: "Put Linux on a computer"
+      project_description: "Put Linux on a computer",
+      project_completed: 1
     },
     {
       project_name: "Learn Guitar",
