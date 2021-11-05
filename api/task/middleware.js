@@ -21,7 +21,7 @@ const validateTaskPayload = (req, res, next) => {
     task_completed,
     project_id
   } = req.body;
-  if (task_id === undefined) {
+  if (task_id !== undefined) {
     next({
       status: 400,
       message: "do not provide a task_id; this will be assigned, automatically"
