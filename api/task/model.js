@@ -27,7 +27,14 @@ const getTaskById = async (task_id) => {
   const record = await db("tasks")
     .where("task_id", task_id)
     .first();
-  return record;
+  const task = {
+    ...record,
+    task_completed:
+      record.task_completed === 0
+        ? false
+        : true,
+  };
+  return task;
 };
 
 const addTask = async (task) => {
