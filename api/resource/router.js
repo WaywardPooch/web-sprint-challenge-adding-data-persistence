@@ -2,7 +2,10 @@
 const express = require("express");
 const Resource = require("./model");
 const { handleError } = require("./../middleware");
-const { validateResourcePayload } = require("./middleware");
+const {
+  validateResourceId,
+  validateResourcePayload
+} = require("./middleware");
 
 const ResourcesRouter = express.Router();
 
@@ -17,6 +20,7 @@ ResourcesRouter.get("/",
   }
 );
 ResourcesRouter.get("/:id",
+  validateResourceId,
   async (req, res, next) => {
     try {
       const { id } = req.params;
