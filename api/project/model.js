@@ -5,9 +5,7 @@ const getProjects = async () => {
   const records = await db("projects");
   const projects = records.map((record) => {
     return {
-      project_id: record.project_id,
-      project_name: record.project_name,
-      project_description: record.project_description,
+      ...record,
       project_completed:
         record.project_completed === 0
           ? false
@@ -22,9 +20,7 @@ const getProjectById = async (project_id) => {
     .where("project_id", project_id)
     .first();
   return {
-    project_id: project.project_id,
-    project_name: project.project_name,
-    project_description: project.project_description,
+    ...project,
     project_completed:
       project.project_completed === 0
         ? false
