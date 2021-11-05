@@ -39,11 +39,11 @@ const validateProjectPayload = (req, res, next) => {
     });
   } else if (
     project_completed !== undefined &&
-    typeof project_completed == "boolean"
+    typeof project_completed === "boolean"
   ) {
     next({
       status: 400,
-      message: "project_completed (optional) must have value 0, 1, true, or false"
+      message: "project_completed (optional) must be a boolean"
     });
   } else {
     next();
